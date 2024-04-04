@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the saved model
-model = tf.keras.models.load_model('./model/2')
+model = tf.keras.models.load_model('./model/3')
 
 # Class labels
 class_labels = ['Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot',
@@ -59,6 +59,8 @@ def predict():
         # Get predicted class name from class labels
         predicted_class_name = class_labels[predicted_class_index[0]]
         # Return the predicted class name along with the prediction
+
+        # print(predicted_class_name)
         return jsonify({'prediction': predicted_class_name})
     else:
         return jsonify({'error': 'Invalid file format'})
